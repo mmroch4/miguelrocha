@@ -60,7 +60,7 @@ const Page = ({ events }: Props) => {
       <Cards
         cards={events.map(({ path, action, title, date }) => ({
           external: true,
-          path,
+          path: path as string,
           title: `[${action}] - ${title}`,
           subtitle: date,
         }))}

@@ -1,6 +1,6 @@
 export interface FilteredEvent {
-  path: string;
+  path: string | undefined;
   action: string;
-  title: string;
+  title: string | null | undefined;
   date: string;
 }

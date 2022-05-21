@@ -1,5 +1,5 @@
-import { FilteredEvent } from '../interface/FilteredEvent';
-import { IUserEvent } from '../interface/IUserEvents';
+import type { FilteredEvent } from '../interface/FilteredEvent';
+import type { IUserEvent } from '../interface/IUserEvent';
 
 export class HandleEvents {
   private github: {
@@ -173,9 +173,9 @@ export class HandleEvents {
         }
         case 'GollumEvent': {
           return {
-            path: payload.pages[0].html_url,
-            action: `Wiki Page ${payload.pages[0].action === 'created' ? 'Created' : 'Edited'}`,
-            title: payload.pages[0].page_name,
+            path: payload.pages?.[0].html_url,
+            action: `Wiki Page ${payload.pages?.[0].action === 'created' ? 'Created' : 'Edited'}`,
+            title: payload.pages?.[0].page_name,
             date: this.convertDate(created_at as string),
           };
         }
