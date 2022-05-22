@@ -58,24 +58,20 @@ export const Cards = ({ cards }: Props) => {
   return (
     <Container>
       {cards.map(({ external, title, subtitle, path }) => {
-        return (
-          <>
-            {external ? (
-              <a href={path} target="_blank" key={Date.now() + uuid()} rel="noreferrer">
-                <InnerContainer>
-                  <Title>{title}</Title>
-                  <Subtitle>{subtitle}</Subtitle>
-                </InnerContainer>
-              </a>
-            ) : (
-              <Link href={path} passHref key={Date.now() + uuid()}>
-                <InnerContainer>
-                  <Title>{title}</Title>
-                  <Subtitle>{subtitle}</Subtitle>
-                </InnerContainer>
-              </Link>
-            )}
-          </>
+        return external ? (
+          <a href={path} target="_blank" key={Date.now() + uuid()} rel="noreferrer">
+            <InnerContainer>
+              <Title>{title}</Title>
+              <Subtitle>{subtitle}</Subtitle>
+            </InnerContainer>
+          </a>
+        ) : (
+          <Link href={path} passHref key={Date.now() + uuid()}>
+            <InnerContainer>
+              <Title>{title}</Title>
+              <Subtitle>{subtitle}</Subtitle>
+            </InnerContainer>
+          </Link>
         );
       })}
     </Container>
