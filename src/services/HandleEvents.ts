@@ -1,4 +1,4 @@
-import type { FilteredEvent } from '../interface/FilteredEvent';
+import type { IFilteredEvent } from '../interface/IFilteredEvent';
 import type { IUserEvent } from '../interface/IUserEvent';
 
 export class HandleEvents {
@@ -8,12 +8,12 @@ export class HandleEvents {
     fullUrl: string;
   } = {
     url: 'https://github.com',
-    profile: 'mmroch4',
-    fullUrl: 'https://github.com/mmroch4',
+    profile: process.env.NEXT_PUBLIC_GITHUB_USERNAME as string,
+    fullUrl: `https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`,
   };
 
-  private convertDate(convert: string): string {
-    const date = new Date(convert).toLocaleString();
+  private convertDate(toConvert: string): string {
+    const date = new Date(toConvert).toLocaleString();
 
     return date;
   }
@@ -42,8 +42,8 @@ export class HandleEvents {
     return type;
   }
 
-  public filterEvents(events: IUserEvent[]): FilteredEvent[] {
-    const filteredEvents = events.map(({ type, payload, repo, created_at }) => {
+  public filterEvents(events: IUserEvent[]): IFilteredEvent[] {
+    const IFilteredEvents = events.map(({ type, payload, repo, created_at }) => {
       switch (type) {
         case 'PushEvent': {
           const headCommitSha = payload.head;
@@ -199,6 +199,6 @@ export class HandleEvents {
       }
     });
 
-    return filteredEvents;
+    return IFilteredEvents;
   }
 }

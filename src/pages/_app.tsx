@@ -27,6 +27,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <title>Miguel Rocha</title>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
       </Head>
+
       <Wrapper>
         <Component {...pageProps} />
       </Wrapper>

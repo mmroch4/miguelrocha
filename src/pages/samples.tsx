@@ -3,30 +3,30 @@ import { Cards } from '../components/Cards';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
-import { IFilteredEvent } from '../interface/IFilteredEvent';
+import { Text } from '../components/Text';
+import { IRepository } from '../interface/IRepositoy';
 import { octokit } from '../lib/octokit';
-import { HandleEvents } from '../services/HandleEvents';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await octokit.request('GET /users/{username}/events/public', {
+  const { data: repositories } = await octokit.request('GET /users/{username}/repos', {
     username: process.env.NEXT_PUBLIC_GITHUB_USERNAME as string,
   });
 
-  const events = new HandleEvents().filterEvents(data);
+  const samples = repositories.filter(({ name }) => name.toLocaleLowerCase().includes('sample'));
 
   return {
     props: {
-      events,
+      samples,
     },
     revalidate: 60 * 10,
   };
 };
 
-interface Props {
-  events: IFilteredEvent[];
+interface IProps {
+  samples: IRepository[];
 }
 
-const Page = ({ events }: Props) => {
+const Page = ({ samples }: IProps) => {
   return (
     <>
       <Navigation
@@ -52,17 +52,33 @@ const Page = ({ events }: Props) => {
 
       <Header
         content={{
-          title: 'My Activity',
-          subtitle: 'Track my activity through GitHub',
+          title: 'Code Samples',
+          subtitle: 'Some simple and awesome code samples',
         }}
       />
 
+      <Text>
+        <p>
+          Those are simple code samples, to see more complex projects, check out my{' '}
+          <a
+            href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub profile
+          </a>
+          .
+        </p>
+
+        <br />
+      </Text>
+
       <Cards
-        cards={events.map(({ path, action, title, date }) => ({
+        cards={samples.map(({ html_url, full_name, description, created_at }) => ({
           external: true,
-          path: path as string,
-          title: `[${action}] - ${title}`,
-          subtitle: date,
+          path: html_url,
+          title: full_name,
+          subtitle: description || new Date(created_at as string).toLocaleString(),
         }))}
       />
 

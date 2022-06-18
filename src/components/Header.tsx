@@ -85,7 +85,10 @@ export const Header = ({ content: { title, subtitle }, hideLinks }: Props) => {
       <Divider />
       {!hideLinks && (
         <InnerContainer>
-          <Link href="https://github.com/mmroch4" target="_blank">
+          <Link
+            href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
+            target="_blank"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="icon icon-tabler icon-tabler-brand-github"

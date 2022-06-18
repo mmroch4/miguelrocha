@@ -1,28 +1,7 @@
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
-import { styled } from '../stitches/stitches.config';
-
-const Content = styled('main', {
-  width: '100%',
-
-  '& p': {
-    fontSize: '1rem',
-    lineHeight: '1.425rem',
-  },
-
-  '& p a': {
-    cursor: 'pointer',
-
-    color: '$colorPrimary',
-    fontWeight: 'bold',
-    textDecoration: 'none',
-  },
-
-  '& p a:hover': {
-    textDecoration: 'underline',
-  },
-});
+import { Text } from '../components/Text';
 
 const Page = () => {
   return (
@@ -55,10 +34,14 @@ const Page = () => {
         }}
       />
 
-      <Content>
+      <Text>
         <p>
           Hi, I&#39;m <strong>Miguel</strong>. I&#39;m a{' '}
-          <a href="https://github.com/mmroch4" target="_blank" rel="noreferrer">
+          <a
+            href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
+            target="_blank"
+            rel="noreferrer"
+          >
             developer
           </a>{' '}
           and a content creator. I&#39;m currently learning <strong>web development</strong>.
@@ -106,7 +89,7 @@ const Page = () => {
           </a>
           .
         </p>
-      </Content>
+      </Text>
 
       <Footer />
     </>

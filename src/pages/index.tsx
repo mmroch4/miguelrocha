@@ -21,12 +21,17 @@ const Page = () => {
           {
             path: '/me',
             title: 'About me',
-            subtitle: 'an amazing subtitle',
+            subtitle: 'a little bit about me',
           },
           {
             path: '/activity',
             title: 'Activity',
-            subtitle: 'an amazing subtitle',
+            subtitle: 'my activity through GitHub',
+          },
+          {
+            path: '/samples',
+            title: 'Samples',
+            subtitle: 'some amazing code samples',
           },
         ]}
       />

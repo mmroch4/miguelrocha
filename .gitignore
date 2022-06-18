@@ -34,3 +34,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# husky
+.husky
+
+# vscode settings
+.vscode

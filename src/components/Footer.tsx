@@ -37,7 +37,11 @@ export const Footer = () => {
 
       <Message>
         Made with love by{' '}
-        <a href="https://github.com/mmroch4" target="_blank" rel="noreferrer">
+        <a
+          href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
+          target="_blank"
+          rel="noreferrer"
+        >
           Miguel Rocha
         </a>
       </Message>
