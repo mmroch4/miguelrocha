@@ -12,21 +12,21 @@ export const getStaticProps: GetStaticProps = async () => {
     username: process.env.NEXT_PUBLIC_GITHUB_USERNAME as string,
   });
 
-  const samples = repositories.filter(({ topics }) => topics?.includes('portfolio-sample'));
+  const projects = repositories.filter(({ topics }) => topics?.includes('portfolio-project'));
 
   return {
     props: {
-      samples,
+      projects,
     },
     revalidate: 60 * 10,
   };
 };
 
 interface IProps {
-  samples: IRepository[];
+  projects: IRepository[];
 }
 
-const Page = ({ samples }: IProps) => {
+const Page = ({ projects }: IProps) => {
   return (
     <>
       <Navigation
@@ -52,29 +52,13 @@ const Page = ({ samples }: IProps) => {
 
       <Header
         content={{
-          title: 'Code Samples',
-          subtitle: 'Some simple and awesome code samples',
+          title: 'My Projects',
+          subtitle: 'Some of my projects available on GitHub',
         }}
       />
 
-      <Text>
-        <p>
-          These are simple code samples, to see more complex projects, check out my{' '}
-          <a
-            href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub profile
-          </a>
-          .
-        </p>
-
-        <br />
-      </Text>
-
       <Cards
-        cards={samples.map(({ html_url, full_name, description, created_at, topics }) => ({
+        cards={projects.map(({ html_url, full_name, description, created_at, topics }) => ({
           external: true,
           path: html_url,
           title: full_name,

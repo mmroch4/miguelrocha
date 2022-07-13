@@ -45,24 +45,50 @@ const Subtitle = styled('p', {
   fontSize: '1.1rem',
 });
 
+const TopicsContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  gap: '0.8rem',
+
+  '& span': {
+    background: '$backgroundColorPrimary',
+
+    borderRadius: 99999,
+
+    padding: '0.25rem 0.8rem',
+
+    color: '$colorPrimary',
+  },
+});
+
 interface Props {
   cards: {
     external?: boolean;
     title: string;
     subtitle: string;
     path: string;
+    topics?: string[];
   }[];
 }
 
 export const Cards = ({ cards }: Props) => {
   return (
     <Container>
-      {cards.map(({ external, title, subtitle, path }) => {
+      {cards.map(({ external, title, subtitle, path, topics }) => {
         return external ? (
           <a href={path} target="_blank" key={Date.now() + uuid()} rel="noreferrer">
             <InnerContainer>
               <Title>{title}</Title>
               <Subtitle>{subtitle}</Subtitle>
+              {topics && (
+                <TopicsContainer>
+                  {topics.map((topic) => (
+                    <span key={Date.now() + uuid()}>{topic}</span>
+                  ))}
+                </TopicsContainer>
+              )}
             </InnerContainer>
           </a>
         ) : (
@@ -70,6 +96,13 @@ export const Cards = ({ cards }: Props) => {
             <InnerContainer>
               <Title>{title}</Title>
               <Subtitle>{subtitle}</Subtitle>
+              {topics && (
+                <TopicsContainer>
+                  {topics.map((topic) => (
+                    <span key={Date.now() + uuid()}>{topic}</span>
+                  ))}
+                </TopicsContainer>
+              )}
             </InnerContainer>
           </Link>
         );

@@ -29,6 +29,11 @@ const Page = () => {
             subtitle: 'my activity through GitHub',
           },
           {
+            path: '/projects',
+            title: 'Projects',
+            subtitle: 'some of my projects available on GitHub',
+          },
+          {
             path: '/samples',
             title: 'Samples',
             subtitle: 'some amazing code samples',
