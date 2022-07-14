@@ -46,11 +46,14 @@ const Subtitle = styled('p', {
 });
 
 const TopicsContainer = styled('div', {
+  width: '100%',
+
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'flex-start',
   alignItems: 'center',
   gap: '0.8rem',
+  flexWrap: 'wrap',
 
   '& span': {
     background: '$backgroundColorPrimary',
