@@ -87,7 +87,12 @@ const es: Translation = {
     Header: {
       title: 'Miguel Rocha',
       subtitle: 'Soy un programador FullStack',
-      icon: 'icono',
+      links: {
+        github: 'Visita mi perfil de GitHub',
+        instagram: 'Visita mi perfil de Instagram',
+        linkedin: 'Visita mi perfil de LinkedIn',
+        mail: 'Envíame un correo electrónico',
+      },
     },
     Footer: {
       message: `Hecho por <a href="https://github.com/mmroch4" target="_blank" rel="noreferrer">Miguel Rocha</a>`,

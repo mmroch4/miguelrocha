@@ -63,7 +63,16 @@ export type Translation = {
   };
 
   Components: {
-    Header: { title: string; subtitle: string; icon: string };
+    Header: {
+      title: string;
+      subtitle: string;
+      links: {
+        github: string;
+        instagram: string;
+        linkedin: string;
+        mail: string;
+      };
+    };
     Footer: { message: string };
   };
 };
