@@ -1,4 +1,4 @@
-import { Translation } from ".";
+import { Translation } from '.';
 
 const es: Translation = {
   Pages: {
@@ -87,6 +87,7 @@ const es: Translation = {
     Header: {
       title: 'Miguel Rocha',
       subtitle: 'Soy un programador FullStack',
+      icon: 'icono',
     },
     Footer: {
       message: `Hecho por <a href="https://github.com/mmroch4" target="_blank" rel="noreferrer">Miguel Rocha</a>`,

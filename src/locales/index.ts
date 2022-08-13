@@ -63,7 +63,7 @@ export type Translation = {
   };
 
   Components: {
-    Header: { title: string; subtitle: string };
+    Header: { title: string; subtitle: string; icon: string };
     Footer: { message: string };
   };
 };
