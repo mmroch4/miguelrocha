@@ -5,10 +5,66 @@ import fr from './fr';
 import pt from './pt';
 
 export type Locale = 'en' | 'pt' | 'fr' | 'de' | 'es';
+
 export type Translation = {
-  Header: {
-    title: string;
-    subtitle: string;
+  Pages: {
+    Index: {
+      Header: {
+        title: string;
+        subtitle: string;
+      };
+
+      Cards: {
+        me: { title: string; subtitle: string };
+        activity: { title: string; subtitle: string };
+        projects: { title: string; subtitle: string };
+        samples: { title: string; subtitle: string };
+      };
+    };
+
+    Samples: {
+      Header: {
+        title: string;
+        subtitle: string;
+      };
+
+      Text: string;
+    };
+
+    Projects: {
+      Header: {
+        title: string;
+        subtitle: string;
+      };
+    };
+
+    Activity: {
+      Header: {
+        title: string;
+        subtitle: string;
+      };
+    };
+
+    Error404: {
+      Header: {
+        title: string;
+        subtitle: string;
+      };
+    };
+
+    Me: {
+      Header: {
+        title: string;
+        subtitle: string;
+      };
+
+      Text: string;
+    };
+  };
+
+  Components: {
+    Header: { title: string; subtitle: string };
+    Footer: { message: string };
   };
 };
 
