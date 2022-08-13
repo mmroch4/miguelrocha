@@ -25,6 +25,7 @@ const Subtitle = styled('p', {
 const Divider = styled('hr', {
   margin: '0.5rem 0 0.25rem',
   width: '4rem',
+  background: '$backgroundSecondary',
   border: '1px solid $backgroundSecondary',
   borderRadius: 9999999,
 });
