@@ -3,7 +3,7 @@ import { Cards } from '../components/Cards';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
-import { Text } from '../components/Text';
+import { useTranslation } from '../hooks/useTranslation';
 import { IRepository } from '../interface/IRepositoy';
 import { octokit } from '../lib/octokit';
 
@@ -27,6 +27,8 @@ interface IProps {
 }
 
 const Projects = ({ projects }: IProps) => {
+  const { language } = useTranslation();
+
   return (
     <>
       <Navigation
@@ -52,8 +54,8 @@ const Projects = ({ projects }: IProps) => {
 
       <Header
         content={{
-          title: 'My Projects',
-          subtitle: 'Some of my projects available on GitHub',
+          title: language.Pages.Projects.Header.title,
+          subtitle: language.Pages.Projects.Header.subtitle,
         }}
       />
 

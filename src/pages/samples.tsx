@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
 import { Text } from '../components/Text';
+import { useTranslation } from '../hooks/useTranslation';
 import { IRepository } from '../interface/IRepositoy';
 import { octokit } from '../lib/octokit';
 
@@ -27,6 +28,8 @@ interface IProps {
 }
 
 const Samples = ({ samples }: IProps) => {
+  const { language } = useTranslation();
+
   return (
     <>
       <Navigation
@@ -52,25 +55,21 @@ const Samples = ({ samples }: IProps) => {
 
       <Header
         content={{
-          title: 'Code Samples',
-          subtitle: 'Some simple and awesome code samples',
+          title: language.Pages.Samples.Header.title,
+          subtitle: language.Pages.Samples.Header.subtitle,
         }}
       />
 
-      <Text>
-        <p>
-          These are simple code samples, to see more complex projects, check out my{' '}
-          <a
-            href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
-            target="_blank"
-            rel="noreferrer"
-          >
+      <Text dangerouslySetInnerHTML={{ __html: language.Pages.Samples.Text }}>
+        {/* <p>
+          These are simple code samples, to see more complex projects, check out my
+          <a href="https://github.com/mmroch4" target="_blank" rel="noreferrer">
             GitHub profile
           </a>
           .
         </p>
 
-        <br />
+        <br /> */}
       </Text>
 
       <Cards

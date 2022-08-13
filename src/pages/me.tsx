@@ -2,8 +2,11 @@ import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
 import { Text } from '../components/Text';
+import { useTranslation } from '../hooks/useTranslation';
 
 const Me = () => {
+  const { language } = useTranslation();
+
   return (
     <>
       <Navigation
@@ -29,19 +32,15 @@ const Me = () => {
 
       <Header
         content={{
-          title: 'Miguel Rocha',
-          subtitle: "That's a little bit about me",
+          title: language.Pages.Me.Header.title,
+          subtitle: language.Pages.Me.Header.subtitle,
         }}
       />
 
-      <Text>
-        <p>
+      <Text dangerouslySetInnerHTML={{ __html: language.Pages.Me.Text }}>
+        {/* <p>
           Hi, I&#39;m <strong>Miguel</strong>. I&#39;m a{' '}
-          <a
-            href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={'https://github.com/mmroch4'} target="_blank" rel="noreferrer">
             developer
           </a>{' '}
           and a content creator. I&#39;m currently learning <strong>web development</strong>.
@@ -88,7 +87,7 @@ const Me = () => {
             microservices
           </a>
           .
-        </p>
+        </p> */}
       </Text>
 
       <Footer />

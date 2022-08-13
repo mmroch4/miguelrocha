@@ -3,6 +3,7 @@ import { Cards } from '../components/Cards';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
+import { useTranslation } from '../hooks/useTranslation';
 import { IFilteredEvent } from '../interface/IFilteredEvent';
 import { octokit } from '../lib/octokit';
 import { HandleEvents } from '../services/HandleEvents';
@@ -27,6 +28,8 @@ interface Props {
 }
 
 const Activity = ({ events }: Props) => {
+  const { language } = useTranslation();
+
   return (
     <>
       <Navigation
@@ -52,8 +55,8 @@ const Activity = ({ events }: Props) => {
 
       <Header
         content={{
-          title: 'My Activity',
-          subtitle: 'Track my activity through GitHub',
+          title: language.Pages.Activity.Header.title,
+          subtitle: language.Pages.Activity.Header.subtitle,
         }}
       />
 

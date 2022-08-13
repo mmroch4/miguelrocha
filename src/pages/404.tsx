@@ -1,8 +1,11 @@
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
+import { useTranslation } from '../hooks/useTranslation';
 
-const Error404= () => {
+const Error404 = () => {
+  const { language } = useTranslation();
+
   return (
     <>
       <Navigation
@@ -28,8 +31,8 @@ const Error404= () => {
 
       <Header
         content={{
-          title: 'Page not found',
-          subtitle: 'The page you were looking for does not exist',
+          title: language.Pages.Error404.Header.title,
+          subtitle: language.Pages.Error404.Header.subtitle,
         }}
       />
 
