@@ -26,7 +26,7 @@ interface Props {
   events: IFilteredEvent[];
 }
 
-const Page = ({ events }: Props) => {
+const Activity = ({ events }: Props) => {
   return (
     <>
       <Navigation
@@ -71,4 +71,4 @@ const Page = ({ events }: Props) => {
   );
 };
 
-export default Page;
+export default Activity;

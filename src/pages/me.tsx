@@ -3,7 +3,7 @@ import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
 import { Text } from '../components/Text';
 
-const Page = () => {
+const Me = () => {
   return (
     <>
       <Navigation
@@ -96,4 +96,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Me;

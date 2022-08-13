@@ -1,10 +1,9 @@
-// Components
 import { Cards } from '../components/Cards';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
 
-const Page = () => {
+const Index = () => {
   return (
     <>
       <Navigation />
@@ -46,4 +45,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Index;

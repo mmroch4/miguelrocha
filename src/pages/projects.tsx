@@ -26,7 +26,7 @@ interface IProps {
   projects: IRepository[];
 }
 
-const Page = ({ projects }: IProps) => {
+const Projects = ({ projects }: IProps) => {
   return (
     <>
       <Navigation
@@ -72,4 +72,4 @@ const Page = ({ projects }: IProps) => {
   );
 };
 
-export default Page;
+export default Projects;

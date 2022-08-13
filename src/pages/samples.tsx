@@ -26,7 +26,7 @@ interface IProps {
   samples: IRepository[];
 }
 
-const Page = ({ samples }: IProps) => {
+const Samples = ({ samples }: IProps) => {
   return (
     <>
       <Navigation
@@ -88,4 +88,4 @@ const Page = ({ samples }: IProps) => {
   );
 };
 
-export default Page;
+export default Samples;
