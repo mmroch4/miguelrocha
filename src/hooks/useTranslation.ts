@@ -2,14 +2,14 @@ import { useRouter } from 'next/router';
 import locales, { de, en, es, fr, Locale, pt, Translation } from '../locales';
 
 export const useTranslation = () => {
-  const { locale, asPath, pathname, ...router } = useRouter();
+  const { locale, asPath, pathname, push } = useRouter();
 
   const language = identifyLanguage();
 
   function changeLanguage(locale: Locale): void {
     if (!locales.includes(locale)) return;
 
-    router.push(pathname, asPath, { locale });
+    push(pathname, asPath, { locale });
   }
 
   function identifyLanguage(): Translation {
@@ -44,5 +44,5 @@ export const useTranslation = () => {
     return language as Translation;
   }
 
-  return { language, changeLanguage };
+  return { language, changeLanguage, locale };
 };

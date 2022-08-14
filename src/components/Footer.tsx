@@ -14,7 +14,7 @@ const Divider = styled('hr', {
   margin: '1.25rem 0 0.9375rem',
   width: '4rem',
   background: '$backgroundSecondary',
-  border: '1px solid $backgroundSecondary',
+  border: '1px solid $borderPrimary',
   borderRadius: 9999999,
 });
 
@@ -27,7 +27,7 @@ const Message = styled('p', {
     textDecoration: 'none',
   },
 
-  '& a:hover': {
+  '& a:hover, & a:focus': {
     textDecoration: 'underline',
   },
 });

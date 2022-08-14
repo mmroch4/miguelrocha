@@ -75,12 +75,20 @@ export type Translation = {
     };
     Footer: { message: string };
     Navigation: {
-      linkMessage: string;
       button: {
         palette: string;
         crown: string;
       };
+      links: {
+        home: string;
+      };
+      linkMessage: string;
     };
+    LanguageSelector: {
+      trigger: string;
+      triggerIcon: string;
+      selected: string;
+    }
   };
 };
 

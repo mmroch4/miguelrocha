@@ -88,9 +88,9 @@ const pt: Translation = {
       title: 'Miguel Rocha',
       subtitle: 'Sou um desenvolvedor Full Stack',
       links: {
-        github: 'Visite meu perfil do GitHub',
-        instagram: 'Visite meu perfil do Instagram',
-        linkedin: 'Visite meu perfil do LinkedIn',
+        github: 'Visite meu perfil do github',
+        instagram: 'Visite meu perfil do instagram',
+        linkedin: 'Visite meu perfil do linkedin',
         mail: 'Envie-me um e-mail',
       },
     },
@@ -99,10 +99,18 @@ const pt: Translation = {
     },
     Navigation: {
       button: {
-        palette: 'Mudar paleta de cor do website',
+        palette: 'Mudar paleta de cor',
         crown: 'Ajude-me',
       },
+      links: {
+        home: 'Página inicial',
+      },
       linkMessage: 'Ir para',
+    },
+    LanguageSelector: {
+      selected: 'Idioma selecionado',
+      trigger: 'Mudar idioma',
+      triggerIcon: 'Abrir caixa de seleção de idiomas',
     },
   },
 };

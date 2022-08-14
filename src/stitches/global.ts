@@ -5,6 +5,7 @@ export const GlobalStyles = globalCss({
     margin: 0,
     padding: 0,
     boxSizing: 'border-box',
+    outline: 'none',
   },
   html: {
     width: '100%',

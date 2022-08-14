@@ -19,7 +19,7 @@ const Content = styled('main', {
     textDecoration: 'none',
   },
 
-  '& p a:hover': {
+  '& p a:hover, & p a:focus': {
     textDecoration: 'underline',
   },
 });

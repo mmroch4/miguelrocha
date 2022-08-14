@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { v4 as uuid } from 'uuid';
 import { styled } from '../stitches/stitches.config';
+import { generateKey } from '../utils/generate-key';
+import { Card } from './Card';
 
 const Container = styled('div', {
   display: 'flex',
@@ -17,52 +18,9 @@ const Container = styled('div', {
   },
 });
 
-const InnerContainer = styled('div', {
-  cursor: 'pointer',
-
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'start',
-
-  gap: '0.5rem',
-
-  padding: '0.75rem 1rem',
-  background: 'transparent',
-  width: '100%',
-  border: '1px solid $borderPrimary',
-  borderRadius: '0.625rem',
-
-  '&:hover': {
+const Anchor = styled('a', {
+  '&:focus div': {
     background: '$backgroundSecondary',
-  },
-});
-
-const Title = styled('h2', {
-  fontSize: '1.35rem',
-});
-
-const Subtitle = styled('p', {
-  fontSize: '1.1rem',
-});
-
-const TopicsContainer = styled('div', {
-  width: '100%',
-
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  gap: '0.8rem',
-  flexWrap: 'wrap',
-
-  '& span': {
-    background: '$backgroundColorPrimary',
-
-    borderRadius: 99999,
-
-    padding: '0.25rem 0.8rem',
-
-    color: '$colorPrimary',
   },
 });
 
@@ -81,32 +39,14 @@ export const Cards = ({ cards }: Props) => {
     <Container>
       {cards.map(({ external, title, subtitle, path, topics }) => {
         return external ? (
-          <a href={path} target="_blank" key={Date.now() + uuid()} rel="noreferrer">
-            <InnerContainer>
-              <Title>{title}</Title>
-              <Subtitle>{subtitle}</Subtitle>
-              {topics && (
-                <TopicsContainer>
-                  {topics.map((topic) => (
-                    <span key={Date.now() + uuid()}>{topic}</span>
-                  ))}
-                </TopicsContainer>
-              )}
-            </InnerContainer>
-          </a>
+          <Anchor href={path} target="_blank" key={generateKey()} rel="noreferrer">
+            <Card title={title} subtitle={subtitle} topics={topics} />
+          </Anchor>
         ) : (
-          <Link href={path} passHref key={Date.now() + uuid()}>
-            <InnerContainer>
-              <Title>{title}</Title>
-              <Subtitle>{subtitle}</Subtitle>
-              {topics && (
-                <TopicsContainer>
-                  {topics.map((topic) => (
-                    <span key={Date.now() + uuid()}>{topic}</span>
-                  ))}
-                </TopicsContainer>
-              )}
-            </InnerContainer>
+          <Link href={path} passHref key={generateKey()}>
+            <Anchor>
+              <Card title={title} subtitle={subtitle} topics={topics} />
+            </Anchor>
           </Link>
         );
       })}

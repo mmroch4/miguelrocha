@@ -1,8 +1,13 @@
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { ReactElement } from 'react';
-import { v4 as uuid } from 'uuid';
+import { TbCrown, TbPalette } from 'react-icons/tb';
+import { useTranslation } from '../hooks/useTranslation';
 import { styled } from '../stitches/stitches.config';
+import { generateKey } from '../utils/generate-key';
+import { LanguageSelector } from './LanguageSelector';
+import { Icon } from './utils/Icon';
+import { Tooltip } from './utils/Tooltip';
 
 const Container = styled('nav', {
   display: 'flex',
@@ -21,7 +26,7 @@ const InnerContainer = styled('div', {
   gap: '0.5rem',
 });
 
-const Button = styled('button', {
+const buttonStyles = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -35,6 +40,10 @@ const Button = styled('button', {
   cursor: 'pointer',
 
   '&:hover': {
+    background: '$backgroundSecondary',
+  },
+
+  '&:focus': {
     background: '$backgroundSecondary',
   },
 
@@ -52,13 +61,24 @@ const Button = styled('button', {
   variants: {
     colored: {
       true: {
-        '&:hover svg': {
+        '& svg': {
           stroke: '$colorPrimary',
+        },
+
+        '&:hover, &:focus': {
+          background: '$backgroundColorPrimary',
+          borderColor: 'transparent',
         },
       },
     },
   },
-});
+};
+
+const Button = styled('button', { ...buttonStyles });
+
+const LinkButton = styled(Link, { ...buttonStyles });
+
+const ExternalLinkButton = styled('a', { ...buttonStyles });
 
 interface Props {
   links?: {
@@ -69,6 +89,8 @@ interface Props {
 }
 
 export const Navigation = ({ links }: Props) => {
+  const { language } = useTranslation();
+
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
@@ -77,37 +99,37 @@ export const Navigation = ({ links }: Props) => {
     <Container>
       <InnerContainer>
         {links?.map(({ title, path, icon }) => (
-          <Link href={path} passHref key={Date.now() + uuid()}>
-            <Button title={title}>{icon}</Button>
-          </Link>
+          <Tooltip content={title} key={generateKey()}>
+            <LinkButton href={path} legacyBehavior={false}>
+              <Icon label={`${language.Components.Navigation.linkMessage}: ${path}`}>{icon}</Icon>
+            </LinkButton>
+          </Tooltip>
         ))}
       </InnerContainer>
+
       <InnerContainer>
-        <Button onClick={toggleTheme}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="icon icon-tabler icon-tabler-palette"
-            viewBox="0 0 24 24"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M12 21a9 9 0 1 1 0 -18a9 8 0 0 1 9 8a4.5 4 0 0 1 -4.5 4h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
-            <circle cx="7.5" cy="10.5" r=".5" fill="currentColor" />
-            <circle cx="12" cy="7.5" r=".5" fill="currentColor" />
-            <circle cx="16.5" cy="10.5" r=".5" fill="currentColor" />
-          </svg>
-        </Button>
-        <a href="https://www.buymeacoffee.com/miguelrocha" target="_blank" rel="noreferrer">
-          <Button colored>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="icon icon-tabler icon-tabler-crown"
-              viewBox="0 0 24 24"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4z" />
-            </svg>
+        <LanguageSelector />
+
+        <Tooltip content={language.Components.Navigation.button.palette}>
+          <Button onClick={toggleTheme}>
+            <Icon label={language.Components.Navigation.button.palette}>
+              <TbPalette />
+            </Icon>
           </Button>
-        </a>
+        </Tooltip>
+
+        <Tooltip content={language.Components.Navigation.button.crown}>
+          <ExternalLinkButton
+            href="https://www.buymeacoffee.com/miguelrocha"
+            target="_blank"
+            rel="noreferrer"
+            colored
+          >
+            <Icon label={language.Components.Navigation.button.crown}>
+              <TbCrown />
+            </Icon>
+          </ExternalLinkButton>
+        </Tooltip>
       </InnerContainer>
     </Container>
   );
