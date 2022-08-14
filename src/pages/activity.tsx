@@ -7,14 +7,14 @@ import { Navigation } from '../components/Navigation';
 import { useTranslation } from '../hooks/useTranslation';
 import { IFilteredEvent } from '../interface/IFilteredEvent';
 import { octokit } from '../lib/octokit';
-import { HandleEvents } from '../services/HandleEvents';
+import { GithubEvents } from '../services/github-events';
 
 export const getStaticProps: GetStaticProps = async () => {
   const { data } = await octokit.request('GET /users/{username}/events/public', {
     username: process.env.NEXT_PUBLIC_GITHUB_USERNAME as string,
   });
 
-  const events = new HandleEvents().filterEvents(data);
+  const events = new GithubEvents().filterEvents(data);
 
   return {
     props: {
