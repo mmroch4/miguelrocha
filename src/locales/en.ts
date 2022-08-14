@@ -97,6 +97,13 @@ const en: Translation = {
     Footer: {
       message: `Made by <a href="https://github.com/mmroch4" target="_blank" rel="noreferrer">Miguel Rocha</a>`,
     },
+    Navigation: {
+      button: {
+        palette: 'Change website color palette',
+        crown: 'Support me',
+      },
+      linkMessage: 'Go to',
+    },
   },
 };
 

@@ -74,6 +74,13 @@ export type Translation = {
       };
     };
     Footer: { message: string };
+    Navigation: {
+      linkMessage: string;
+      button: {
+        palette: string;
+        crown: string;
+      };
+    };
   };
 };
 
