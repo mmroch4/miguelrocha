@@ -1,7 +1,11 @@
 import type { IFilteredEvent } from '../interface/IFilteredEvent';
 import type { IUserEvent } from '../interface/IUserEvent';
+import { Translation } from '../locales';
+import { formatDate } from './format-date';
 
 export class GithubEvents {
+  constructor(private translation: Translation) {}
+
   private github: {
     url: string;
     profile: string;
@@ -12,18 +16,12 @@ export class GithubEvents {
     fullUrl: `https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`,
   };
 
-  private convertDate(toConvert: string): string {
-    const date = new Date(toConvert).toLocaleString();
-
-    return date;
-  }
-
-  private getType(refType: string): 'Repository' | 'Branch' | 'Tag' {
-    let type: 'Repository' | 'Branch' | 'Tag' = 'Repository';
+  private getType(refType: string): 'Repo' | 'Branch' | 'Tag' {
+    let type: 'Repo' | 'Branch' | 'Tag' = 'Repo';
 
     switch (refType) {
       case 'repository': {
-        type = 'Repository';
+        type = 'Repo';
 
         break;
       }
@@ -53,7 +51,10 @@ export class GithubEvents {
             path: `${this.github.url}/${repo.name}/commits/${headCommitSha}`,
             action: 'Pushed',
             title: headCommit?.message,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         case 'CreateEvent': {
@@ -63,7 +64,10 @@ export class GithubEvents {
             }`,
             action: `${this.getType(payload.ref_type as string)} Created`,
             title: payload.ref_type === 'repository' ? repo.name : payload.ref,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         case 'DeleteEvent': {
@@ -71,12 +75,15 @@ export class GithubEvents {
 
           return {
             path:
-              type === 'Repository'
+              type === 'Repo'
                 ? `${this.github.url}/${this.github.profile}`
                 : `${this.github.url}/${repo.name}`,
             action: `${type} Deleted`,
             title: payload.ref,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         case 'WatchEvent': {
@@ -84,7 +91,10 @@ export class GithubEvents {
             path: `${this.github.url}/${repo.name}`,
             action: 'Watched',
             title: repo.name,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         case 'ForkEvent': {
@@ -92,7 +102,10 @@ export class GithubEvents {
             path: payload.forkee?.html_url,
             action: 'Forked',
             title: repo.name,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         // case 'SponsorshipEvent': {
@@ -102,7 +115,10 @@ export class GithubEvents {
             path: payload.release?.html_url,
             action: 'Released',
             title: payload.release?.name,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         case 'PullRequestEvent': {
@@ -116,7 +132,10 @@ export class GithubEvents {
                 : 'Denied'
             }`,
             title: payload.pull_request?.title,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         case 'PullRequestReviewEvent': {
@@ -124,7 +143,10 @@ export class GithubEvents {
             path: payload.pull_request?.html_url,
             action: 'Pull Request Reviewed',
             title: payload.pull_request?.title,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         case 'PullRequestReviewCommentEvent': {
@@ -132,7 +154,10 @@ export class GithubEvents {
             path: payload.pull_request?.html_url,
             action: 'Pull Request Review Commented',
             title: payload.pull_request?.title,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         case 'PullRequestReviewThreadEvent': {
@@ -142,7 +167,10 @@ export class GithubEvents {
               payload.action === 'resolved' ? 'Resolved' : 'Unresolved'
             }`,
             title: payload.pull_request?.title,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         case 'PublicEvent': {
@@ -150,7 +178,10 @@ export class GithubEvents {
             path: `${this.github.url}/${repo.name}`,
             action: 'Public',
             title: repo.name,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         // case 'MemberEvent': {
@@ -160,7 +191,10 @@ export class GithubEvents {
             path: payload.issue?.html_url,
             action: `Issue ${payload.action === 'opened' ? 'Opened' : 'Closed'}`,
             title: payload.issue?.title,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         case 'IssueCommentEvent': {
@@ -168,7 +202,10 @@ export class GithubEvents {
             path: payload.issue?.html_url,
             action: 'Issue Commented',
             title: payload.issue?.title,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         case 'GollumEvent': {
@@ -176,7 +213,10 @@ export class GithubEvents {
             path: payload.pages?.[0].html_url,
             action: `Wiki Page ${payload.pages?.[0].action === 'created' ? 'Created' : 'Edited'}`,
             title: payload.pages?.[0].page_name,
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
         case 'CommitCommentEvent': {
@@ -184,7 +224,10 @@ export class GithubEvents {
             path: payload.comment?.html_url,
             action: 'Commit Commented',
             title: '',
-            date: this.convertDate(created_at as string),
+            date: formatDate(created_at as string, this.translation.date.template, {
+              locale: this.translation.date.locale,
+              displayDistance: true,
+            }),
           };
         }
 

@@ -1,4 +1,5 @@
 import { Translation } from '.';
+import ES from 'date-fns/locale/es'
 
 const es: Translation = {
   Pages: {
@@ -112,6 +113,11 @@ const es: Translation = {
       trigger: 'Cambiar idioma',
       triggerIcon: 'Abrir cuadro selector de idiomas',
     },
+  },
+
+  date: {
+    template: "'el 'eee' 'd' de 'MMMM' de 'uuuu' a las 'k':'mm",
+    locale: ES,
   },
 };
 

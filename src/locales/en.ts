@@ -1,4 +1,5 @@
 import { Translation } from '.';
+import EN from 'date-fns/locale/en-US'
 
 const en: Translation = {
   Pages: {
@@ -109,9 +110,14 @@ const en: Translation = {
     },
     LanguageSelector: {
       selected: 'Language selected',
-      trigger: "Change language",
+      trigger: 'Change language',
       triggerIcon: 'Open languages selector box',
     },
+  },
+
+  date: {
+    template: "eee', the 'do' of 'MMMM' 'uuuu' at 'h':'mm' 'aaa",
+    locale: EN,
   },
 };
 

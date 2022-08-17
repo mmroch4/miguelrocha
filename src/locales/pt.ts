@@ -1,3 +1,4 @@
+import PT from 'date-fns/locale/pt';
 import { Translation } from '.';
 
 const pt: Translation = {
@@ -112,6 +113,11 @@ const pt: Translation = {
       trigger: 'Mudar idioma',
       triggerIcon: 'Abrir caixa de seleção de idiomas',
     },
+  },
+
+  date: {
+    template: "eee', 'd' de 'MMMM' de 'uuuu' às 'k':'mm",
+    locale: PT,
   },
 };
 

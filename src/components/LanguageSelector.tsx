@@ -79,6 +79,10 @@ const SelectContent = styled(SelectPrimitive.Content, {
 });
 
 const SelectViewport = styled(SelectPrimitive.Viewport, {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.2rem',
+
   minWidth: 200,
 
   padding: '0.5rem',

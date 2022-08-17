@@ -1,3 +1,4 @@
+import DE from 'date-fns/locale/de';
 import { Translation } from '.';
 
 const de: Translation = {
@@ -110,6 +111,11 @@ const de: Translation = {
       trigger: 'Sprache ändern',
       triggerIcon: 'Sprachauswahlfeld öffnen',
     },
+  },
+
+  date: {
+    template: "eee', 'd'. 'MMMM' 'uuuu' um 'k':'mm' Uhr'",
+    locale: DE,
   },
 };
 

@@ -5,7 +5,7 @@ import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Navigation } from '../components/Navigation';
 import { useTranslation } from '../hooks/useTranslation';
-import { IFilteredEvent } from '../interface/IFilteredEvent';
+import { IUserEvent } from '../interface/IUserEvent';
 import { octokit } from '../lib/octokit';
 import { GithubEvents } from '../services/github-events';
 
@@ -14,22 +14,22 @@ export const getStaticProps: GetStaticProps = async () => {
     username: process.env.NEXT_PUBLIC_GITHUB_USERNAME as string,
   });
 
-  const events = new GithubEvents().filterEvents(data);
-
   return {
     props: {
-      events,
+      data,
     },
     revalidate: 60 * 10,
   };
 };
 
 interface Props {
-  events: IFilteredEvent[];
+  data: IUserEvent[];
 }
 
-const Activity = ({ events }: Props) => {
+const Activity = ({ data }: Props) => {
   const { language } = useTranslation();
+
+  const events = new GithubEvents(language).filterEvents(data);
 
   return (
     <>

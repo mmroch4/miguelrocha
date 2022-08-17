@@ -88,7 +88,12 @@ export type Translation = {
       trigger: string;
       triggerIcon: string;
       selected: string;
-    }
+    };
+  };
+
+  date: {
+    template: string;
+    locale: any;
   };
 };
 
