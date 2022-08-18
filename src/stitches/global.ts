@@ -17,11 +17,11 @@ export const GlobalStyles = globalCss({
     justifyContent: 'center',
     justifyItems: 'center',
 
-    background: '$backgroundPrimary',
+    background: '$slate1',
     width: '100%',
 
-    color: '$fontPrimary',
-    fontFamily: 'system-ui',
+    color: '$slate12',
+    fontFamily: 'ubuntu, system-ui',
   },
   '::-webkit-scrollbar-track': {
     border: 'none',
@@ -34,8 +34,8 @@ export const GlobalStyles = globalCss({
     background: 'transparent',
   },
   '::-webkit-scrollbar-thumb': {
-    border: '1 solid $backgroundSecondary',
+    border: '1px solid transparent',
     borderRadius: 10,
-    background: '$backgroundSecondary',
+    background: '$slate3',
   },
 });

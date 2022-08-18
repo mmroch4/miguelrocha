@@ -15,8 +15,8 @@ const Component = styled('div', {
 
   width: '5rem',
   height: '5rem',
-  border: '5px solid $borderPrimary',
-  borderTop: '5px solid $fontPrimary',
+  border: '5px solid $slate7',
+  borderTop: '5px solid $slate8',
   borderRadius: '50%',
   animation: `${Rotate} 0.5s linear infinite`,
 });

@@ -13,8 +13,8 @@ const Container = styled('footer', {
 const Divider = styled('hr', {
   margin: '1.25rem 0 0.9375rem',
   width: '4rem',
-  background: '$backgroundSecondary',
-  border: '1px solid $borderPrimary',
+  background: '$slate2',
+  border: '1px solid $slate6',
   borderRadius: 9999999,
 });
 
@@ -22,13 +22,17 @@ const Message = styled('p', {
   '& a': {
     cursor: 'pointer',
 
-    color: '$fontPrimary',
+    color: '$slate12',
     fontWeight: 'bold',
     textDecoration: 'none',
   },
 
   '& a:hover, & a:focus': {
     textDecoration: 'underline',
+  },
+
+  '& a:active': {
+    color: '$blue10',
   },
 });
 

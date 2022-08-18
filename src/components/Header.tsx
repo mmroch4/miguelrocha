@@ -29,8 +29,8 @@ const Subtitle = styled('p', {
 const Divider = styled('hr', {
   margin: '0.5rem 0 0.25rem',
   width: '4rem',
-  background: '$backgroundSecondary',
-  border: '1px solid $borderPrimary',
+  background: '$slate2',
+  border: '1px solid $slate6',
   borderRadius: 9999999,
 });
 
@@ -56,14 +56,13 @@ const Link = styled('a', {
   height: '2.5rem',
   borderRadius: 999999999,
 
-  '&:hover': {
-    background: '$backgroundSecondary',
-    border: '1px solid $borderPrimary',
+  '&:hover, &:focus': {
+    background: '$slate4',
+    border: '1px solid $slate8',
   },
 
-  '&:focus': {
-    background: '$backgroundSecondary',
-    border: '1px solid $borderPrimary',
+  '&:active': {
+    background: '$slate5',
   },
 
   '& svg': {
@@ -71,7 +70,7 @@ const Link = styled('a', {
     height: '1.5rem',
 
     fill: 'none',
-    stroke: '$fontPrimary',
+    stroke: '$slate12',
     strokeWidth: 1.5,
     strokeLinecap: 'round',
     strokeLinejoin: 'round',

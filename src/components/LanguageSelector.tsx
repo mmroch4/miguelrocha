@@ -20,22 +20,23 @@ const SelectTrigger = styled(SelectPrimitive.Trigger, {
 
   padding: '0.5rem',
 
-  border: '1px solid $borderPrimary',
+  border: '1px solid $slate7',
   borderRadius: 10,
 
   cursor: 'pointer',
 
-  '&:hover': {
-    background: '$backgroundSecondary',
+  '&:hover, &:focus': {
+    background: '$slate4',
+    borderColor: '$slate8',
   },
 
-  '&:focus': {
-    background: '$backgroundSecondary',
+  '&:active': {
+    background: '$slate5',
   },
 
   '& span': {
     textAlign: 'center',
-    color: '$fontPrimary',
+    color: '$slate12',
     fontSize: '1.125rem',
     fontWeight: 'bold',
   },
@@ -45,7 +46,7 @@ const SelectTrigger = styled(SelectPrimitive.Trigger, {
     height: '1.5rem',
 
     fill: 'none',
-    stroke: '$fontPrimary',
+    stroke: '$slate12',
     strokeWidth: 1.5,
     strokeLinecap: 'round',
     strokeLinejoin: 'round',
@@ -62,7 +63,7 @@ const SelectTriggerIcon = styled(SelectPrimitive.Icon, {
     height: '1.25rem',
 
     fill: 'none',
-    stroke: '$fontPrimary',
+    stroke: '$slate12',
     strokeWidth: 1.5,
     strokeLinecap: 'round',
     strokeLinejoin: 'round',
@@ -72,9 +73,9 @@ const SelectTriggerIcon = styled(SelectPrimitive.Icon, {
 const SelectContent = styled(SelectPrimitive.Content, {
   overflow: 'hidden',
 
-  background: '$backgroundPrimary',
+  background: '$slate2',
 
-  border: '1px solid $borderPrimary',
+  border: '1px solid $slate6',
   borderRadius: 10,
 });
 
@@ -100,32 +101,30 @@ const SelectItem = styled(SelectPrimitive.Item, {
 
   padding: '0.25rem 0.5rem',
 
-  '&:hover': {
-    borderColor: '$borderPrimary',
-    background: '$backgroundSecondary',
+  '&:hover, &:focus': {
+    background: '$slate4',
+    borderColor: '$slate8',
   },
 
-  '&:focus': {
-    borderColor: '$borderPrimary',
-    background: '$backgroundSecondary',
+  '&:active': {
+    background: '$slate5',
   },
 
   variants: {
     selected: {
       true: {
-        color: '$colorPrimary',
+        color: '$blue9',
 
-        background: '$backgroundColorPrimary',
-        borderColor: 'transparent',
+        background: '$blue3',
+        borderColor: '$blue7',
 
-        '&:hover': {
-          borderColor: 'transparent',
-          background: '$backgroundColorPrimary',
+        '&:hover, &:focus': {
+          background: '$blue4',
+          borderColor: '$blue8',
         },
 
-        '&:focus': {
-          borderColor: 'transparent',
-          background: '$backgroundColorPrimary',
+        '&:active': {
+          background: '$blue5',
         },
       },
     },
@@ -143,19 +142,19 @@ const scrollButtonStyles = {
   justifyContent: 'center',
   alignItems: 'center',
 
-  background: '$backgroundPrimary',
+  background: '$slate2',
 };
 
 const SelectScrollUpButton = styled(SelectPrimitive.ScrollUpButton, {
   ...scrollButtonStyles,
 
-  borderBottom: '1px solid $borderPrimary',
+  borderBottom: '1px solid $slate6',
 });
 
 const SelectScrollDownButton = styled(SelectPrimitive.ScrollDownButton, {
   ...scrollButtonStyles,
 
-  borderTop: '1px solid $borderPrimary',
+  borderTop: '1px solid $slate6',
 });
 
 const flags = {

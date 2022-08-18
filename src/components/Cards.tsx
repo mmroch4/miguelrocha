@@ -19,8 +19,13 @@ const Container = styled('div', {
 });
 
 const Anchor = styled('a', {
-  '&:focus div': {
-    background: '$backgroundSecondary',
+  '&:hover div, &:focus div': {
+    background: '$slate4',
+    borderColor: '$slate8',
+  },
+
+  '&:active div': {
+    background: '$slate5',
   },
 });
 

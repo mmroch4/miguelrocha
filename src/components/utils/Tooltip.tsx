@@ -2,8 +2,8 @@ import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 import { styled } from '../../stitches/stitches.config';
 
 const Container = styled('div', {
-  background: '$backgroundPrimary',
-  border: '1px solid $borderPrimary',
+  background: '$slate2',
+  border: '1px solid $slate6',
   borderRadius: 10,
 
   margin: '0.25rem',

@@ -8,6 +8,7 @@ import { Text } from '../components/Text';
 import { useTranslation } from '../hooks/useTranslation';
 import { IRepository } from '../interface/IRepositoy';
 import { octokit } from '../lib/octokit';
+import { formatDate } from '../utils/format-date';
 
 export const getStaticProps: GetStaticProps = async () => {
   const { data: repositories } = await octokit.request('GET /users/{username}/repos', {
@@ -29,7 +30,7 @@ interface IProps {
 }
 
 const Samples = ({ samples }: IProps) => {
-  const { language } = useTranslation();
+  const { language, locale } = useTranslation();
 
   return (
     <>
@@ -67,7 +68,11 @@ const Samples = ({ samples }: IProps) => {
           external: true,
           path: html_url,
           title: full_name,
-          subtitle: description || new Date(created_at as string).toLocaleString(),
+          subtitle:
+            description ||
+            formatDate(created_at as string, language.date.template, {
+              locale: language.date.locale,
+            }),
           topics,
         }))}
       />

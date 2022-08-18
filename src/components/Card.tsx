@@ -13,11 +13,16 @@ const Container = styled('div', {
   padding: '0.75rem 1rem',
   background: 'transparent',
   width: '100%',
-  border: '1px solid $borderPrimary',
+  border: '1px solid $slate7',
   borderRadius: '0.625rem',
 
   '&:hover, &:focus': {
-    background: '$backgroundSecondary',
+    background: '$slate4',
+    borderColor: '$slate8',
+  },
+
+  '&:active': {
+    background: '$slate5',
   },
 });
 
@@ -40,13 +45,13 @@ const TopicsContainer = styled('div', {
   flexWrap: 'wrap',
 
   '& span': {
-    background: '$backgroundColorPrimary',
+    background: '$blue3',
 
     borderRadius: 99999,
 
     padding: '0.25rem 0.8rem',
 
-    color: '$colorPrimary',
+    color: '$blue11',
   },
 });
 
@@ -60,7 +65,7 @@ export const Card = ({ title, subtitle, topics }: Props) => {
   return (
     <Container>
       <Title>{title}</Title>
-      
+
       <Subtitle>{subtitle}</Subtitle>
 
       {topics && (

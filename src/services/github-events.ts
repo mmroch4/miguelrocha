@@ -1,7 +1,7 @@
 import type { IFilteredEvent } from '../interface/IFilteredEvent';
 import type { IUserEvent } from '../interface/IUserEvent';
 import { Translation } from '../locales';
-import { formatDate } from './format-date';
+import { formatDate } from '../utils/format-date';
 
 export class GithubEvents {
   constructor(private translation: Translation) {}

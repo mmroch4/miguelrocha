@@ -7,6 +7,8 @@ const Content = styled('main', {
   '& p': {
     textAlign: 'center',
 
+    color: '$slate12',
+
     fontSize: '1rem',
     lineHeight: '1.425rem',
   },
@@ -14,12 +16,14 @@ const Content = styled('main', {
   '& p a': {
     cursor: 'pointer',
 
-    color: '$colorPrimary',
+    color: '$blue9',
     fontWeight: 'bold',
     textDecoration: 'none',
   },
 
   '& p a:hover, & p a:focus': {
+    color: '$blue10',
+
     textDecoration: 'underline',
   },
 });

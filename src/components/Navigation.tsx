@@ -34,17 +34,18 @@ const buttonStyles = {
   background: 'transparent',
   width: '2.5rem',
   height: '2.5rem',
-  border: '1px solid $borderPrimary',
+  border: '1px solid $slate7',
   borderRadius: 10,
 
   cursor: 'pointer',
 
-  '&:hover': {
-    background: '$backgroundSecondary',
+  '&:hover, &:focus': {
+    background: '$slate4',
+    borderColor: '$slate8',
   },
 
-  '&:focus': {
-    background: '$backgroundSecondary',
+  '&:active': {
+    background: '$slate5',
   },
 
   '& svg': {
@@ -52,7 +53,7 @@ const buttonStyles = {
     height: '1.5rem',
 
     fill: 'none',
-    stroke: '$fontPrimary',
+    stroke: '$slate12',
     strokeWidth: 1.5,
     strokeLinecap: 'round',
     strokeLinejoin: 'round',
@@ -61,13 +62,19 @@ const buttonStyles = {
   variants: {
     colored: {
       true: {
+        borderColor: '$blue7',
+
         '& svg': {
-          stroke: '$colorPrimary',
+          stroke: '$blue9',
         },
 
         '&:hover, &:focus': {
-          background: '$backgroundColorPrimary',
-          borderColor: 'transparent',
+          background: '$blue4',
+          borderColor: '$blue8',
+        },
+
+        '&:active': {
+          background: '$blue5',
         },
       },
     },
