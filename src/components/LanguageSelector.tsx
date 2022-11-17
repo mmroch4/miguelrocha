@@ -173,9 +173,7 @@ const options: { value: Locale; text: string }[] = [
   { value: 'es', text: 'Español' },
 ];
 
-interface Props {}
-
-export const LanguageSelector = ({}: Props) => {
+export const LanguageSelector = () => {
   const { locale, changeLanguage, language } = useTranslation();
 
   return (

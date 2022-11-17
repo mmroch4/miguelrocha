@@ -1,6 +1,7 @@
 import type { components } from '@octokit/openapi-types';
 
 type IEvent = components['schemas']['event'];
+
 type ICommit = {
   sha: string;
   url: string;
@@ -11,6 +12,7 @@ type ICommit = {
     name: string;
   };
 };
+
 type IRepository = components['schemas']['repository'] & {
   public: boolean;
 };

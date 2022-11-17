@@ -43,16 +43,7 @@ export const Footer = () => {
     <Container>
       <Divider />
 
-      <Message dangerouslySetInnerHTML={{ __html: language.Components.Footer.message }}>
-        {/* Made by
-        <a
-          href="https://github.com/mmroch4"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Miguel Rocha
-        </a> */}
-      </Message>
+      <Message dangerouslySetInnerHTML={{ __html: language.Components.Footer.message }} />
     </Container>
   );
 };

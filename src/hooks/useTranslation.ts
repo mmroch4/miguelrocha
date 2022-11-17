@@ -13,7 +13,7 @@ export const useTranslation = () => {
   }
 
   function identifyLanguage(): Translation {
-    let language = {};
+    let language = {} as Translation;
 
     switch (locale) {
       case 'en':
@@ -41,7 +41,7 @@ export const useTranslation = () => {
         break;
     }
 
-    return language as Translation;
+    return language;
   }
 
   return { language, changeLanguage, locale };
