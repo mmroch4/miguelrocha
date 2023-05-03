@@ -1,91 +1,61 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import NextLink from "next/link";
+import { Header } from "./(components)/Header";
 
-const inter = Inter({ subsets: ['latin'] })
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+}
+
+function Link({ href, title, description }: Props) {
+  return (
+    <NextLink
+      href={href}
+      className="w-full flex flex-col gap-0.5 px-5 py-3 border border-gray-4 rounded-lg active:border-gray-5 hover:bg-gray-4 focus:bg-gray-4 active:bg-gray-5"
+    >
+      <h2 className="text-xl font-bold">{title}</h2>
+
+      <p>{description}</p>
+    </NextLink>
+  );
+}
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <main className="w-full flex flex-col items-center gap-4">
+      <Header />
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+      {/* <section id="pages" className="w-full flex flex-col items-center gap-3">
+        <Link
+          href="/about"
+          title="About"
+          description="Lorem ipsum dolor sit amet consectetur adipisicing elit"
         />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        <Link
+          href="/projects"
+          title="Projects"
+          description="Lorem ipsum dolor sit amet consectetur adipisicing elit"
+        />
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
+        <Link
+          href="/activity"
+          title="Activity"
+          description="Lorem ipsum dolor sit amet consectetur adipisicing elit"
+        />
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        <Link
+          href="/blog"
+          title="Blog"
+          description="Lorem ipsum dolor sit amet consectetur adipisicing elit"
+        />
+
+        <Link
+          href="/havefun"
+          title="Have fun"
+          description="Lorem ipsum dolor sit amet consectetur adipisicing elit"
+        />
+      </section> */}
     </main>
-  )
+  );
 }
