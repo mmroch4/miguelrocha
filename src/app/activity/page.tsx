@@ -1,6 +1,10 @@
 import { Header } from "../(components)/Header";
 import { Card } from "./Card";
 
+export const metadata = {
+  title: "Activity",
+};
+
 export default function Activity() {
   return (
     <main className="w-full flex flex-col items-center gap-4">

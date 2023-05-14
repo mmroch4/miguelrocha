@@ -13,7 +13,6 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["var(--font-ubuntu)"],
-        mono: ["var(--font-ubuntu-mono)"],
       },
     },
   },

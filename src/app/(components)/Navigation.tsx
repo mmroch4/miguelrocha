@@ -1,85 +1,66 @@
 import NextLink from "next/link";
-import { RiCupLine, RiPaletteLine } from "react-icons/ri";
+import { RiCommandLine } from "react-icons/ri";
 
 export function Navigation() {
   return (
-    <nav className="w-full flex items-center justify-between pb-4">
-      <div className="flex items-center gap-4">
-        <ul className="flex items-center gap-6">
-          <li>
-            <NextLink
-              href="/"
-              className="hover:text-blue-9 active:text-blue-10"
-            >
-              Home
-            </NextLink>
-          </li>
+    <nav className="w-full flex items-center justify-between px-4 py-2">
+      <NextLink
+        href="/"
+        className="flex justify-center items-center w-9 h-9 p-2 text-center text-xl leading-5 font-bold hover:bg-gray-4 focus:bg-gray-4 active:bg-gray-5 rounded-lg"
+      >
+        M
+      </NextLink>
 
-          <li>
-            <NextLink
-              href="/about"
-              className="hover:text-blue-9 active:text-blue-10"
-            >
-              About
-            </NextLink>
-          </li>
-
-          <li>
-            <NextLink
-              href="/projects"
-              className="hover:text-blue-9 active:text-blue-10"
-            >
-              Projects
-            </NextLink>
-          </li>
-
-          <li>
-            <NextLink
-              href="/activity"
-              className="hover:text-blue-9 active:text-blue-10"
-            >
-              Activity
-            </NextLink>
-          </li>
-
-          <li>
-            <NextLink
-              href="/blog"
-              className="hover:text-blue-9 active:text-blue-10"
-            >
-              Blog
-            </NextLink>
-          </li>
-
-          <li>
-            <NextLink
-              href="/havefun"
-              className="hover:text-blue-9 active:text-blue-10"
-            >
-              Have fun
-            </NextLink>
-          </li>
-        </ul>
-      </div>
-
-      <ul className="flex items-center gap-2">
+      <ul className="flex flex-1 justify-center items-center gap-2 capitalize">
         <li>
-          <a
-            href="https://www.buymeacoffee.com/miguelrocha"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-blue-12 cursor-pointer px-4 py-2 border rounded-full border-transparent bg-blue-3 hover:bg-blue-4 focus:bg-blue-4 active:bg-blue-5"
+          <NextLink
+            href="/about"
+            className="px-4 py-2 rounded-lg hover:bg-gray-4 focus:bg-gray-4 active:bg-gray-5"
           >
-            <RiCupLine className="stroke-blue-12 w-5 h-5" /> Buy me a coffee
-          </a>
+            About
+          </NextLink>
         </li>
 
         <li>
-          <button className="cursor-pointer p-2 border rounded-full border-transparent hover:bg-gray-4 focus:bg-gray-4 active:bg-gray-5">
-            <RiPaletteLine className="stroke-gray-12 w-5 h-5" />
-          </button>
+          <NextLink
+            href="/projects"
+            className="px-4 py-2 rounded-lg hover:bg-gray-4 focus:bg-gray-4 active:bg-gray-5"
+          >
+            Projects
+          </NextLink>
+        </li>
+
+        <li>
+          <NextLink
+            href="/activity"
+            className="px-4 py-2 rounded-lg hover:bg-gray-4 focus:bg-gray-4 active:bg-gray-5"
+          >
+            Activity
+          </NextLink>
+        </li>
+
+        <li>
+          <NextLink
+            href="/blog"
+            className="px-4 py-2 rounded-lg hover:bg-gray-4 focus:bg-gray-4 active:bg-gray-5"
+          >
+            Blog
+          </NextLink>
+        </li>
+
+        <li>
+          <NextLink
+            href="/havefun"
+            className="px-4 py-2 rounded-lg hover:bg-gray-4 focus:bg-gray-4 active:bg-gray-5"
+          >
+            Have fun
+          </NextLink>
         </li>
       </ul>
+
+      <button className="p-2 rounded-lg hover:bg-gray-4 focus:bg-gray-4 active:bg-gray-5">
+        <RiCommandLine className="stroke-gray-12 w-5 h-5" />
+      </button>
     </nav>
   );
 }

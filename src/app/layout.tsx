@@ -1,12 +1,11 @@
 import { BetaVersionWarning } from "./(components)/BetaVersionWarning";
 import { Footer } from "./(components)/Footer";
 import { Navigation } from "./(components)/Navigation";
-import { ubuntu, ubuntuMono } from "./(config)/fonts";
+import { ubuntu } from "./(config)/fonts";
 import "./(styles)/globals.css";
+import { metadata as m } from "./metadata";
 
-export const metadata = {
-  title: "Miguel Rocha",
-};
+export const metadata = { ...m };
 
 export default function RootLayout({
   children,
@@ -14,16 +13,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${ubuntu.variable} ${ubuntuMono.variable} font-sans text-gray-12`}
-    >
+    <html lang="en" className={`${ubuntu.variable} font-sans text-gray-12`}>
       <body className="flex flex-col items-center bg-gray-1">
         <BetaVersionWarning />
 
-        <div className="max-w-screen-lg w-screen flex flex-col px-8 py-4">
-          <Navigation />
+        <Navigation />
 
+        <div className="max-w-screen-lg w-screen flex flex-col px-4 py-4">
           {children}
 
           <Footer />
