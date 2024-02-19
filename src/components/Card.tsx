@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { styled } from '../stitches/stitches.config';
 import { generateKey } from '../utils/generate-key';
 
@@ -24,10 +25,44 @@ const Container = styled('div', {
   '&:active': {
     background: '$slate5',
   },
+
+  variants: {
+    highlight: {
+      true: {
+        background: '$blue3',
+        borderColor: '$blue7',
+
+        color: '$blue12',
+
+        '& svg': {
+          stroke: '$blue9',
+        },
+
+        '&:hover, &:focus': {
+          background: '$blue4',
+          borderColor: '$blue8',
+        },
+
+        '&:active': {
+          background: '$blue5',
+        },
+      },
+    },
+  },
 });
 
 const Title = styled('h2', {
   fontSize: '1.35rem',
+
+  variants: {
+    icon: {
+      true: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+      },
+    },
+  },
 });
 
 const Subtitle = styled('p', {
@@ -59,12 +94,16 @@ interface Props {
   title: string;
   subtitle: string;
   topics?: string[];
+  highlight?: boolean;
+  icon?: ReactNode;
 }
 
-export const Card = ({ title, subtitle, topics }: Props) => {
+export const Card = ({ title, subtitle, topics, highlight = false, icon }: Props) => {
   return (
-    <Container>
-      <Title>{title}</Title>
+    <Container highlight={highlight}>
+      <Title icon={!!icon}>
+        {!!icon && icon} {title}
+      </Title>
 
       <Subtitle>{subtitle}</Subtitle>
 

@@ -1,3 +1,4 @@
+import { TbStar } from 'react-icons/tb';
 import { Cards } from '../components/Cards';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
@@ -20,6 +21,14 @@ const Index = () => {
 
       <Cards
         cards={[
+          {
+            external: true,
+            path: 'https://demo.miguelrocha.dev/app',
+            title: 'Inline',
+            subtitle: 'Otimize seu tempo',
+            highlight: true,
+            icon: <TbStar />,
+          },
           {
             path: '/me',
             title: language.Pages.Index.Cards.me.title,
